@@ -3,100 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" "#0A0A0A" />
-  <meta name="description" content="Konrad Chan — Motion Designer, Creative Director, Music Producer. Hong Kong. Selected work 2018—2026." />
+  <meta name="theme-color" "#FFFFFF" />
+  <meta name="description" content="Konrad Chan — Motion Designer · Creative Director · Music Producer. Hong Kong. Selected work." />
   <title>Konrad Chan — Motion Designer / CD / Producer · Hong Kong</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230A0A0A'/><text x='50' y='72' text-anchor='middle' font-family='Georgia' font-size='64' font-weight='700' fill='%23F5F1E8'>K</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFFFF'/><text x='50' y='72' text-anchor='middle' font-family='Georgia' font-size='64' font-weight='600' fill='%230A0A0A'>K</text></svg>" />
 
-  <!-- Typography: Editorial New (display) + Inter (sans) + JetBrains Mono (mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── Reset ─── */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     body { margin: 0; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; cursor: pointer; border: none; background: none; padding: 0; color: inherit; }
-    img { max-width: 100%; display: block; }
+    img, video { max-width: 100%; display: block; }
 
-    /* ─── Tokens ─── */
     :root {
+      --bg: #FFFFFF;
       --ink: #0A0A0A;
-      --ink-2: #141414;
-      --ink-3: #1F1F1F;
-      --paper: #F5F1E8;
-      --paper-2: #E8E2D2;
-      --bone: #D9D2BD;
-      --line: rgba(255,255,255,0.08);
-      --line-2: rgba(255,255,255,0.15);
+      --ink-2: #2A2A2A;
+      --muted: #6B6B6B;
+      --muted-2: #9A9A9A;
+      --line: #E8E8E8;
+      --line-2: #F2F2F2;
+      --accent: #FF3D00;
+      --hover-tint: rgba(0,0,0,0.04);
 
-      --signal: #FF3D00;
-      --signal-2: #FF6B33;
-      --gold: #FFD60A;
-
-      --font-display: 'DM Serif Display', 'Times New Roman', serif;
-      --font-serif: 'Instrument Serif', 'Georgia', serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Instrument Serif', 'Georgia', serif;
       --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
-
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     body {
       font-family: var(--font-sans);
-      background: var(--ink);
-      color: var(--paper);
-      font-size: 16px;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 14px;
       line-height: 1.5;
       font-weight: 400;
-      cursor: none;
-    }
-    @media (max-width: 768px) { body { cursor: auto; } }
-
-    /* ─── Custom cursor ─── */
-    .cursor {
-      position: fixed;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: var(--signal);
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform 0.2s var(--ease-out), width 0.3s var(--ease-out), height 0.3s var(--ease-out), background 0.3s, opacity 0.3s;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: difference;
-      background: white;
-    }
-    .cursor.hover { width: 56px; height: 56px; background: var(--signal); mix-blend-mode: normal; }
-    .cursor.play { width: 84px; height: 84px; background: var(--paper); color: var(--ink); }
-    .cursor.play::after {
-      content: '▶ Play';
-      position: absolute;
-      inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 500; letter-spacing: 0.05em;
-    }
-    @media (max-width: 768px) { .cursor { display: none; } }
-
-    /* ─── Loading screen ─── */
-    .loader {
-      position: fixed; inset: 0;
-      background: var(--ink);
-      z-index: 10000;
-      display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.6s 0.2s, visibility 0.6s 0.2s;
-    }
-    .loader.gone { opacity: 0; visibility: hidden; }
-    .loader-inner {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--paper);
-      opacity: 0.6;
     }
 
     /* ─── Top nav ─── */
@@ -105,781 +51,572 @@
       z-index: 100;
       padding: 20px 32px;
       display: flex; justify-content: space-between; align-items: center;
-      mix-blend-mode: difference;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, padding 0.3s;
     }
+    .nav.scrolled { border-bottom-color: var(--line); padding: 14px 32px; }
     .nav-logo {
-      font-family: var(--font-display);
-      font-size: 18px;
-      color: var(--paper);
-      letter-spacing: 0.01em;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.01em;
       display: flex; align-items: center; gap: 8px;
     }
     .nav-logo .dot {
-      width: 8px; height: 8px;
-      background: var(--signal);
+      width: 6px; height: 6px;
+      background: var(--accent);
       border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
     }
     .nav-links { display: flex; gap: 28px; }
     .nav-link {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--paper);
+      font-size: 12px;
+      color: var(--ink-2);
+      font-weight: 400;
+      letter-spacing: 0.01em;
       position: relative;
-      padding: 4px 0;
     }
     .nav-link::after {
-      content: ''; position: absolute; bottom: 0; left: 0;
-      width: 0; height: 1px; background: var(--paper);
-      transition: width 0.3s var(--ease-out);
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--ink);
+      transition: width 0.3s;
     }
     .nav-link:hover::after { width: 100%; }
-    .nav-cta {
+    .nav-status {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--paper);
-      padding: 10px 18px;
-      border: 1px solid var(--paper);
-      border-radius: 999px;
-      transition: all 0.3s var(--ease-out);
+      color: var(--muted);
+      display: flex; align-items: center; gap: 6px;
     }
-    .nav-cta:hover { background: var(--paper); color: var(--ink); }
+    .nav-status .pulse {
+      width: 6px; height: 6px; background: #2ECC71; border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     @media (max-width: 768px) {
       .nav { padding: 16px 20px; }
-      .nav-links { display: none; }
+      .nav-status { display: none; }
+      .nav-links { gap: 18px; }
     }
 
-    /* ─── Hero ─── */
+    /* ─── Hero (minimal) ─── */
     .hero {
-      min-height: 100vh;
-      padding: 140px 32px 60px;
-      position: relative;
-      display: flex; flex-direction: column; justify-content: space-between;
-      background: var(--ink);
-      overflow: hidden;
+      padding: 160px 32px 80px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
-    .hero-meta-top {
-      display: flex; justify-content: space-between;
+    .hero-top {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 40px;
+    }
+    .hero-top .meta {
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      color: var(--muted);
     }
-    .hero-meta-top .live { display: flex; align-items: center; gap: 6px; color: var(--paper); }
-    .hero-meta-top .live::before {
-      content: ''; width: 6px; height: 6px; background: var(--signal); border-radius: 50%;
-      animation: pulse 1.5s infinite;
-    }
+    .hero-top .meta b { color: var(--ink); font-weight: 500; }
     .hero-name {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(80px, 18vw, 320px);
-      line-height: 0.85;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.95;
       letter-spacing: -0.04em;
-      margin: 40px 0 0;
-      color: var(--paper);
-    }
-    .hero-name .accent {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--signal);
-    }
-    .hero-bottom {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 60px;
-      align-items: end;
-      margin-top: 60px;
+      margin: 0;
+      color: var(--ink);
     }
     .hero-tagline {
       font-family: var(--font-serif);
-      font-size: clamp(20px, 2.4vw, 32px);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      color: var(--paper);
-      max-width: 540px;
-    }
-    .hero-tagline em {
       font-style: italic;
-      color: var(--signal);
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.3;
+      color: var(--ink-2);
+      max-width: 680px;
+      margin: 24px 0 0;
     }
-    .hero-corners {
-      display: flex; flex-direction: column;
-      gap: 16px;
-      align-items: flex-end;
-    }
-    .hero-roles {
+    .hero-meta-bottom {
+      display: flex; gap: 32px;
+      margin-top: 60px;
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      text-align: right;
-      line-height: 1.6;
+      color: var(--muted);
+      flex-wrap: wrap;
     }
-    .hero-roles b { color: var(--paper); font-weight: 500; display: block; margin-bottom: 4px; font-size: 12px; }
+    .hero-meta-bottom b { color: var(--ink); font-weight: 500; }
+    .hero-meta-bottom .divider { color: var(--line); }
     @media (max-width: 768px) {
-      .hero { padding: 100px 20px 40px; }
-      .hero-bottom { grid-template-columns: 1fr; gap: 32px; }
-      .hero-corners { align-items: flex-start; }
-      .hero-roles { text-align: left; }
+      .hero { padding: 120px 20px 60px; }
+      .hero-top { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
 
-    /* ─── Marquee ─── */
-    .marquee {
-      background: var(--paper);
-      color: var(--ink);
-      padding: 22px 0;
-      overflow: hidden;
-      border-top: 1px solid var(--ink);
-      border-bottom: 1px solid var(--ink);
-    }
-    .marquee-track {
-      display: flex; gap: 80px;
-      animation: scroll 35s linear infinite;
-      white-space: nowrap;
-      width: max-content;
-    }
-    .marquee-item {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 44px;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      display: flex; align-items: center; gap: 80px;
-    }
-    .marquee-item .star { color: var(--signal); }
-    @keyframes scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-    @media (max-width: 768px) {
-      .marquee-item { font-size: 28px; gap: 40px; }
-      .marquee-track { gap: 40px; }
-    }
-
-    /* ─── Section base ─── */
-    section { padding: 100px 32px; }
-    .section-head {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 60px;
-      margin-bottom: 60px;
-      padding-bottom: 24px;
+    /* ─── Filter bar ─── */
+    .filter-bar {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px 24px;
+      display: flex; justify-content: space-between; align-items: center;
       border-bottom: 1px solid var(--line);
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .section-head .label {
+    .filter-list { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink-2);
+      font-size: 12px;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+    .filter:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .filter.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .filter-count {
       font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-    }
-    .section-head .count {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 64px;
-      font-weight: 400;
-      line-height: 1;
-      color: var(--paper);
-    }
-    .section-head h2 {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 72px);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      margin: 0;
-      color: var(--paper);
-    }
-    .section-head h2 em { font-style: italic; color: var(--signal); }
-    .section-head .lede {
-      font-size: 16px;
-      color: rgba(255,255,255,0.6);
-      max-width: 480px;
-      line-height: 1.6;
-      margin-top: 16px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
     }
     @media (max-width: 768px) {
-      section { padding: 60px 20px; }
-      .section-head { grid-template-columns: 1fr; gap: 24px; }
+      .filter-bar { padding: 0 20px 20px; }
     }
 
-    /* ─── Work — Bento grid (asymmetric, mixed aspect ratios) ─── */
-    .work { background: var(--ink); }
+    /* ─── Work grid (THE work) ─── */
+    .work {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 32px 100px;
+    }
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: 120px;
-      gap: 16px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
+    @media (min-width: 1024px) {
+      .work-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .work { padding: 32px 20px 80px; }
+      .work-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+
     .work-tile {
       position: relative;
-      border-radius: 6px;
+      cursor: pointer;
+      background: transparent;
+      padding: 0;
+      text-align: left;
+    }
+    .work-tile-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--line-2);
+      border-radius: 4px;
       overflow: hidden;
-      background: var(--ink-3);
-      transition: transform 0.5s var(--ease-out);
-      cursor: none;
     }
-    .work-tile:hover { transform: translateY(-4px); }
-    .work-tile-bg {
+    .work-tile-thumb .still,
+    .work-tile-thumb .preview {
       position: absolute; inset: 0;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.6s var(--ease-out), filter 0.6s;
-      filter: saturate(0.95) brightness(0.95);
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s, transform 0.6s;
     }
-    .work-tile:hover .work-tile-bg { transform: scale(1.05); filter: saturate(1.1) brightness(1.05); }
-    .work-tile-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.85) 100%);
-      opacity: 0.7;
-      transition: opacity 0.4s;
+    .work-tile-thumb .still {
+      opacity: 1;
+      transform: scale(1);
     }
-    .work-tile:hover .work-tile-overlay { opacity: 1; }
-    .work-tile-content {
-      position: absolute; inset: 0;
-      padding: 20px;
-      display: flex; flex-direction: column; justify-content: space-between;
+    .work-tile-thumb .preview {
+      opacity: 0;
+      transform: scale(1.02);
     }
-    .work-tile-num {
+    .work-tile:hover .work-tile-thumb .still,
+    .work-tile:focus .work-tile-thumb .still {
+      opacity: 0;
+      transform: scale(1.04);
+    }
+    .work-tile:hover .work-tile-thumb .preview,
+    .work-tile:focus .work-tile-thumb .preview {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .work-tile-thumb .corner {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 4px 8px;
+      border-radius: 4px;
       font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.6);
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      display: flex; align-items: center; gap: 4px;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 2;
+    }
+    .work-tile:hover .work-tile-thumb .corner {
+      opacity: 1; transform: translateY(0);
+    }
+    .work-tile-thumb .corner::before {
+      content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
+    }
+    .work-tile-meta {
+      padding-top: 14px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 16px;
+    }
+    .work-tile-meta .col { display: flex; flex-direction: column; gap: 2px; }
+    .work-tile-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.01em;
     }
     .work-tile-client {
       font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-    }
-    .work-tile-title {
-      font-family: var(--font-display);
-      font-size: 28px;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      margin: 4px 0 0;
-      color: var(--paper);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
     }
     .work-tile-foot {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-top: auto;
-    }
-    .work-tile-meta {
       font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
     }
-    .work-tile-arrow {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: var(--paper);
-      color: var(--ink);
-      display: flex; align-items: center; justify-content: center;
-      transition: transform 0.3s var(--ease-out), background 0.3s;
-      font-size: 14px;
+    .work-tile-foot .arrow {
+      display: inline-block;
+      transition: transform 0.3s;
     }
-    .work-tile:hover .work-tile-arrow { transform: rotate(-45deg); background: var(--signal); color: var(--paper); }
-
-    /* Play button overlay (motion video style) */
-    .work-tile-play {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%) scale(0.8);
-      width: 64px; height: 64px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.95);
-      color: var(--ink);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      opacity: 0;
-      transition: opacity 0.3s, transform 0.3s;
-    }
-    .work-tile:hover .work-tile-play { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-
-    /* Tile size variants — asymmetric, mixed aspects */
-    .tile-c1 { grid-column: span 7; grid-row: span 4; }   /* 16:9-ish hero */
-    .tile-c2 { grid-column: span 5; grid-row: span 3; }   /* medium */
-    .tile-c3 { grid-column: span 3; grid-row: span 3; }   /* portrait 4:5 */
-    .tile-c4 { grid-column: span 4; grid-row: span 2; }   /* 2:1 */
-    .tile-c5 { grid-column: span 5; grid-row: span 2; }   /* 2.5:1 */
-    .tile-c6 { grid-column: span 4; grid-row: span 3; }   /* 4:3 */
-    .tile-c7 { grid-column: span 4; grid-row: span 2; }   /* 2:1 */
-    .tile-c8 { grid-column: span 4; grid-row: span 3; }   /* 4:3 */
-
-    /* Solid-color tile (no image) */
-    .work-tile.solid {
-      background: var(--signal);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .work-tile.solid .work-tile-content {
-      justify-content: center;
-      text-align: center;
-      padding: 32px;
-    }
-    .work-tile.solid .work-tile-bg { display: none; }
-    .work-tile.solid .work-tile-overlay { display: none; }
-    .work-tile.solid .work-tile-title {
-      font-size: 36px;
-      color: var(--ink);
-    }
-    .work-tile.solid .work-tile-num,
-    .work-tile.solid .work-tile-client,
-    .work-tile.solid .work-tile-meta { color: var(--ink); }
-
-    @media (max-width: 1024px) {
-      .work-grid { grid-template-columns: repeat(6, 1fr); }
-      .tile-c1, .tile-c2, .tile-c5, .tile-c6 { grid-column: span 6; grid-row: span 4; }
-      .tile-c3, .tile-c4, .tile-c7, .tile-c8 { grid-column: span 3; grid-row: span 3; }
-    }
-    @media (max-width: 640px) {
-      .work-grid { grid-template-columns: 1fr; }
-      [class*="tile-c"] { grid-column: span 1; grid-row: span 4; min-height: 280px; }
+    .work-tile:hover .work-tile-foot .arrow {
+      transform: translate(2px, -2px);
     }
 
-    /* ─── About ─── */
-    .about { background: var(--paper); color: var(--ink); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .about-photo {
-      aspect-ratio: 4/5;
-      background: linear-gradient(135deg, #2A2A2A 0%, #0A0A0A 100%);
-      border-radius: 6px;
-      position: relative;
-      overflow: hidden;
-      background-image: url('https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=1200&q=80&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-    }
-    .about-photo::after {
-      content: '';
+    /* Fallback preview animation (CSS-only, in case GIFs fail) */
+    .work-tile-thumb .css-preview {
       position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%);
-    }
-    .about-photo .caption {
-      position: absolute; bottom: 16px; left: 16px;
-      color: var(--paper);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--ink);
+      color: var(--bg);
       font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.08em;
+      font-size: 11px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-    .about-bio .label {
+    .work-tile-thumb .css-preview::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.15) 49%, rgba(255,255,255,0.15) 51%, transparent 52%) 0 0 / 200% 200%;
+      animation: scan 4s linear infinite;
+    }
+    @keyframes scan {
+      from { background-position: 0 0; }
+      to { background-position: 200% 0; }
+    }
+    .work-tile:hover .work-tile-thumb .css-preview { opacity: 1; }
+
+    /* ─── Reel strip (compact, before footer) ─── */
+    .reel-strip {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 32px 100px;
+      border-top: 1px solid var(--line);
+    }
+    .reel-strip-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .reel-strip-left {
+      display: flex; align-items: center; gap: 24px;
+    }
+    .reel-play-btn {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      transition: transform 0.3s;
+    }
+    .reel-play-btn:hover { transform: scale(1.1); }
+    .reel-strip h3 {
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .reel-strip h3 small {
+      display: block;
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.5);
-      margin-bottom: 16px;
-    }
-    .about-bio h2 {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 4.5vw, 64px);
+      color: var(--muted);
       font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      margin-bottom: 32px;
+      margin-top: 4px;
     }
-    .about-bio h2 em { font-style: italic; color: var(--signal); }
-    .about-bio p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: rgba(0,0,0,0.75);
-      margin-bottom: 16px;
-      max-width: 520px;
-    }
-    .about-bio .quote-box {
-      margin-top: 32px;
-      padding: 24px;
-      background: var(--ink);
-      color: var(--paper);
-      border-radius: 6px;
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 18px;
-      line-height: 1.4;
-    }
-    .about-bio .quote-box::before {
-      content: '"';
-      display: block;
-      font-family: var(--font-display);
-      font-size: 60px;
-      color: var(--signal);
-      line-height: 0.5;
-      margin-bottom: 16px;
+    .reel-strip-right {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex; gap: 24px;
     }
     @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .reel-strip { padding: 40px 20px 60px; }
+      .reel-strip-inner { flex-direction: column; align-items: flex-start; }
     }
 
-    /* ─── Selected clients (logo wall, minimal) ─── */
-    .clients {
-      background: var(--ink);
+    /* ─── About (compact) ─── */
+    .about {
+      max-width: 1400px;
+      margin: 0 auto;
       padding: 80px 32px;
       border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .about-photo {
+      aspect-ratio: 4/5;
+      background: var(--line-2);
+      background-image: url('https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=1200&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      border-radius: 4px;
+    }
+    .about h2 {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0 0 24px;
+    }
+    .about h2 em { font-style: italic; color: var(--muted); font-weight: 400; }
+    .about p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 520px;
+      margin: 0 0 16px;
+    }
+    .about-credentials {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 520px;
+    }
+    .cred .label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .cred .value { font-size: 14px; color: var(--ink); }
+    @media (max-width: 768px) {
+      .about { padding: 60px 20px; grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ─── Clients row (compact) ─── */
+    .clients {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 32px;
+      border-top: 1px solid var(--line);
     }
     .clients-head {
       display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 48px;
-      flex-wrap: wrap; gap: 16px;
+      margin-bottom: 32px;
     }
     .clients-head .label {
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      color: var(--muted);
     }
     .clients-list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--line-2);
-      border-left: 1px solid var(--line-2);
+      display: flex; flex-wrap: wrap;
+      gap: 12px 32px;
     }
-    .client-cell {
-      padding: 28px 20px;
-      border-right: 1px solid var(--line-2);
-      border-bottom: 1px solid var(--line-2);
-      font-family: var(--font-display);
-      font-size: 28px;
-      font-weight: 400;
+    .client-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
       letter-spacing: -0.01em;
-      color: var(--paper);
-      transition: color 0.3s;
-      display: flex; align-items: center; justify-content: space-between;
     }
-    .client-cell:hover { color: var(--signal); }
-    .client-cell .num {
+    @media (max-width: 768px) {
+      .clients { padding: 40px 20px; }
+    }
+
+    /* ─── Contact (minimal) ─── */
+    .contact {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 100px 32px 60px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+    }
+    .contact h2 {
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin: 0;
+    }
+    .contact h2 em { font-style: italic; font-weight: 400; }
+    .contact-details {
+      display: flex; flex-direction: column;
+      gap: 16px;
+    }
+    .contact-row {
+      display: flex; justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .contact-row .label {
       font-family: var(--font-mono);
       font-size: 10px;
       letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.3);
-    }
-    @media (max-width: 768px) {
-      .clients-list { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* ─── Reel (showcase video) ─── */
-    .reel { background: var(--ink); padding: 100px 32px; }
-    .reel-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 21/9;
-      background: var(--ink-2);
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: none;
-    }
-    .reel-frame .bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--ink-3) 0%, var(--ink) 100%);
-      background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=2400&q=80&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      filter: saturate(0.8) brightness(0.7);
-      transition: filter 0.5s;
-    }
-    .reel-frame:hover .bg { filter: saturate(1.1) brightness(0.9); }
-    .reel-frame .overlay {
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.5) 100%);
-    }
-    .reel-frame .play {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      background: var(--paper);
-      color: var(--ink);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 32px;
-      transition: transform 0.3s var(--ease-out), background 0.3s;
-    }
-    .reel-frame:hover .play { transform: translate(-50%, -50%) scale(1.1); background: var(--signal); color: var(--paper); }
-    .reel-frame .label {
-      position: absolute; bottom: 24px; left: 24px;
-      color: var(--paper);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
-      z-index: 2;
+      color: var(--muted);
     }
-    .reel-frame .label b { display: block; font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-    .reel-frame .duration {
-      position: absolute; bottom: 24px; right: 24px;
-      color: var(--paper);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      z-index: 2;
-      opacity: 0.7;
-    }
-
-    /* ─── Approach / disciplines ─── */
-    .approach { background: var(--paper); color: var(--ink); }
-    .approach-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--ink);
-    }
-    .approach-card {
-      padding: 40px 32px 40px 0;
-      border-right: 1px solid var(--ink);
-      border-bottom: 1px solid var(--ink);
-    }
-    .approach-card:nth-child(3n) { border-right: none; }
-    .approach-card .num {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 48px;
-      font-weight: 400;
-      line-height: 1;
-      margin-bottom: 16px;
-      display: block;
-      color: var(--ink);
-    }
-    .approach-card h3 {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
-    }
-    .approach-card p { font-size: 14px; color: rgba(0,0,0,0.65); line-height: 1.6; }
+    .contact-row .value { font-size: 14px; color: var(--ink); }
+    .contact-row .value a:hover { color: var(--accent); }
     @media (max-width: 768px) {
-      .approach-grid { grid-template-columns: 1fr; }
-      .approach-card { border-right: none; }
+      .contact { padding: 60px 20px 40px; grid-template-columns: 1fr; gap: 32px; }
     }
 
-    /* ─── Recognition ─── */
-    .recognition {
-      background: var(--ink);
-      border-top: 1px solid var(--line);
-    }
-    .rec-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--line-2);
-    }
-    .rec-cell {
-      padding: 32px 24px;
-      border-right: 1px solid var(--line-2);
-      border-bottom: 1px solid var(--line-2);
-      transition: background 0.3s;
-    }
-    .rec-cell:hover { background: var(--ink-2); }
-    .rec-cell:nth-child(3n) { border-right: none; }
-    .rec-cell .year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
-    .rec-cell .title { font-family: var(--font-display); font-size: 20px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
-    .rec-cell .org { font-size: 13px; color: rgba(255,255,255,0.5); }
-    @media (max-width: 768px) {
-      .rec-grid { grid-template-columns: 1fr 1fr; }
-      .rec-cell:nth-child(2n) { border-right: none; }
-      .rec-cell:nth-child(3n) { border-right: 1px solid var(--line-2); }
-    }
-
-    /* ─── Testimonial ─── */
-    .testimonial {
-      background: var(--paper);
-      color: var(--ink);
-      padding: 120px 32px;
-    }
-    .testimonial-inner { max-width: 1100px; margin: 0 auto; }
-    .testimonial-quote {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(28px, 4vw, 56px);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      margin-bottom: 40px;
-    }
-    .testimonial-quote::before { content: '"'; display: block; font-family: var(--font-display); font-size: 80px; color: var(--signal); line-height: 0.4; margin-bottom: 24px; }
-    .testimonial-attribution { display: flex; align-items: center; gap: 16px; }
-    .testimonial-avatar {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: var(--ink);
-      color: var(--paper);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display);
-      font-size: 18px;
-    }
-    .testimonial-name { font-size: 14px; font-weight: 500; }
-    .testimonial-role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(0,0,0,0.5); margin-top: 2px; }
-
-    /* ─── Contact ─── */
-    .contact {
-      background: var(--ink);
-      color: var(--paper);
-      padding: 140px 32px 100px;
-      text-align: center;
-      border-top: 1px solid var(--line);
-    }
-    .contact-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 24px;
-    }
-    .contact h2 {
-      font-family: var(--font-display);
-      font-size: clamp(60px, 12vw, 220px);
-      font-weight: 400;
-      font-style: italic;
-      letter-spacing: -0.04em;
-      line-height: 0.95;
-      margin: 0 0 40px;
-      color: var(--paper);
-    }
-    .contact h2 em { color: var(--signal); font-style: italic; }
-    .contact-email {
-      font-family: var(--font-display);
-      font-size: clamp(24px, 3vw, 40px);
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      color: var(--paper);
-      border-bottom: 1px solid var(--paper);
-      padding-bottom: 4px;
-      display: inline-block;
-      transition: opacity 0.3s, color 0.3s, border-color 0.3s;
-    }
-    .contact-email:hover { opacity: 0.8; color: var(--signal); border-color: var(--signal); }
-    .contact-details {
-      display: flex; justify-content: center; gap: 60px;
-      margin-top: 80px;
-      flex-wrap: wrap;
-      padding-top: 40px;
-      border-top: 1px solid var(--line);
-    }
-    .contact-detail .label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
-    .contact-detail .value { font-size: 14px; }
-    .contact-detail .value a { color: var(--paper); text-decoration: none; }
-    .contact-detail .value a:hover { color: var(--signal); }
-
-    /* ─── Footer ─── */
+    /* ─── Footer (minimal) ─── */
     .footer {
-      background: var(--ink);
-      color: rgba(255,255,255,0.5);
-      padding: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 32px 32px;
       display: flex; justify-content: space-between; align-items: center;
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      border-top: 1px solid var(--line);
+      color: var(--muted);
     }
-    .footer-version { opacity: 0.7; }
-    .footer-links { display: flex; gap: 32px; }
-    .footer-links a { color: var(--paper); opacity: 0.6; transition: opacity 0.3s, color 0.3s; }
-    .footer-links a:hover { opacity: 1; color: var(--signal); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--muted); transition: color 0.3s; }
+    .footer-links a:hover { color: var(--ink); }
     @media (max-width: 768px) {
-      .footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .footer { flex-direction: column; gap: 12px; align-items: flex-start; padding: 20px; }
     }
 
     /* ─── Project modal ─── */
     .modal {
       position: fixed; inset: 0;
-      background: var(--ink);
+      background: var(--bg);
       z-index: 1000;
       overflow-y: auto;
       transform: translateY(100%);
-      transition: transform 0.6s var(--ease);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .modal.open { transform: translateY(0); }
     .modal-close {
-      position: fixed; top: 24px; right: 32px;
+      position: fixed; top: 20px; right: 20px;
       z-index: 1001;
-      width: 48px; height: 48px;
+      width: 40px; height: 40px;
       border-radius: 50%;
-      background: var(--paper);
-      color: var(--ink);
+      background: var(--ink);
+      color: var(--bg);
       display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
+      font-size: 14px;
       cursor: pointer;
     }
-    .modal-close:hover { background: var(--signal); color: var(--paper); }
-    .modal-content { max-width: 1200px; margin: 0 auto; padding: 80px 32px; }
+    .modal-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
     .modal-hero {
       aspect-ratio: 16/9;
-      border-radius: 6px;
-      margin-bottom: 60px;
+      background: var(--line-2);
+      border-radius: 4px;
+      margin-bottom: 48px;
       background-size: cover;
       background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .modal-hero video {
+      width: 100%; height: 100%; object-fit: cover;
     }
     .modal-meta {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      padding-bottom: 32px;
-      margin-bottom: 48px;
-      border-bottom: 1px solid var(--line-2);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--line);
     }
-    .modal-meta .label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
-    .modal-meta .value { font-size: 14px; font-weight: 500; color: var(--paper); }
+    .modal-meta .label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .modal-meta .value { font-size: 14px; font-weight: 500; color: var(--ink); }
     .modal-title {
-      font-family: var(--font-display);
-      font-size: clamp(40px, 5vw, 72px);
-      font-weight: 400;
-      letter-spacing: -0.02em;
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
       line-height: 1.05;
-      margin-bottom: 48px;
+      margin-bottom: 32px;
     }
-    .modal-title em { font-style: italic; color: var(--signal); }
-    .modal-section { margin-bottom: 48px; max-width: 720px; }
-    .modal-section h3 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--signal); margin-bottom: 12px; font-weight: 500; }
-    .modal-section p { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.7); }
+    .modal-section { margin-bottom: 32px; max-width: 720px; }
+    .modal-section h3 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 500; }
+    .modal-section p { font-size: 15px; line-height: 1.7; color: var(--ink-2); margin: 0; }
     .modal-section .pull-quote {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: 32px;
-      line-height: 1.25;
-      color: var(--paper);
-      padding: 32px 0;
-      border-top: 1px solid var(--line-2);
-      border-bottom: 1px solid var(--line-2);
-      margin: 32px 0;
+      font-size: 24px;
+      line-height: 1.4;
+      color: var(--ink);
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 24px 0;
     }
     .modal-images {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin: 32px 0;
+      margin-top: 32px;
     }
     .modal-images .img {
       aspect-ratio: 4/3;
-      background: var(--ink-3);
-      border-radius: 6px;
+      background: var(--line-2);
+      border-radius: 4px;
       background-size: cover;
       background-position: center;
     }
@@ -889,41 +626,15 @@
       .modal-images { grid-template-columns: 1fr; }
     }
 
-    /* ─── Scroll reveal ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
+    /* Scroll reveal — minimal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.in { opacity: 1; transform: translateY(0); }
-
-    /* ─── Generative noise (subtle) ─── */
-    .noise {
-      position: fixed; inset: 0;
-      pointer-events: none;
-      z-index: 9998;
-      opacity: 0.04;
-      mix-blend-mode: overlay;
-      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    }
   </style>
 </head>
-
 <body>
 
-  <!-- ─── Noise overlay ─── -->
-  <div class="noise"></div>
-
-  <!-- ─── Loading screen ─── -->
-  <div class="loader" id="loader">
-    <div class="loader-inner">Konrad Chan · Loading</div>
-  </div>
-
-  <!-- ─── Custom cursor ─── -->
-  <div class="cursor" id="cursor"></div>
-
   <!-- ─── Top nav ─── -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="nav-logo">
       <span class="dot"></span>
       Konrad Chan
@@ -931,425 +642,280 @@
     <div class="nav-links">
       <a href="#work" class="nav-link">Work</a>
       <a href="#about" class="nav-link">About</a>
-      <a href="#reel" class="nav-link">Reel</a>
       <a href="#contact" class="nav-link">Contact</a>
     </div>
-    <a href="#contact" class="nav-cta">Start a project →</a>
+    <div class="nav-status">
+      <span class="pulse"></span>
+      <span>Available · Q4 2026</span>
+    </div>
   </nav>
 
-  <!-- ─── Hero ─── -->
+  <!-- ─── Hero (minimal) ─── -->
   <header class="hero">
-    <div class="hero-meta-top">
-      <span class="live">Available · Q4 2026</span>
-      <span>Hong Kong · 22°C · Clear</span>
-      <span>№ 08 / 2026</span>
-    </div>
-
-    <div>
-      <h1 class="hero-name">
-        Konrad<br/>
-        <span class="accent">Chan.</span>
-      </h1>
-    </div>
-
-    <div class="hero-bottom">
-      <p class="hero-tagline">
-        I make things <em>move</em> — commercials, music videos, brand films, and the occasional album. Sound-led motion design out of Hong Kong, built for brands that care about craft.
-      </p>
-      <div class="hero-corners">
-        <div class="hero-roles">
-          <b>Currently</b>
-          Motion Designer<br/>
-          Creative Director<br/>
-          Music Producer<br/>
-          Sound Design
-        </div>
+    <div class="hero-top">
+      <div class="meta">
+        <b>Motion Designer</b> · Creative Director · Music Producer
       </div>
+      <div class="meta">
+        Hong Kong · <b>Est. 2018</b>
+      </div>
+    </div>
+    <h1 class="hero-name">Konrad Chan</h1>
+    <p class="hero-tagline">
+      Sound-led motion design out of Hong Kong. Brand films, music videos, and the occasional album. I never make anything I'm not proud of, and will obsess over any given project until it is the best it can be.
+    </p>
+    <div class="hero-meta-bottom">
+      <span><b>Selected clients</b> Calvin Klein · Adobe · Marriott</span>
+      <span class="divider">·</span>
+      <span><b>Since</b> 2018</span>
+      <span class="divider">·</span>
+      <span><b>Currently</b> Booking Q1 2027</span>
     </div>
   </header>
 
-  <!-- ─── Marquee ─── -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <div class="marquee-item">Motion Design <span class="star">✦</span></div>
-      <div class="marquee-item">Creative Direction <span class="star">✦</span></div>
-      <div class="marquee-item">Sound Design <span class="star">✦</span></div>
-      <div class="marquee-item">Music Production <span class="star">✦</span></div>
-      <div class="marquee-item">Brand Films <span class="star">✦</span></div>
-      <div class="marquee-item">Music Videos <span class="star">✦</span></div>
-      <div class="marquee-item">Color &amp; Finish <span class="star">✦</span></div>
-      <div class="marquee-item">Motion Design <span class="star">✦</span></div>
-      <div class="marquee-item">Creative Direction <span class="star">✦</span></div>
-      <div class="marquee-item">Sound Design <span class="star">✦</span></div>
-      <div class="marquee-item">Music Production <span class="star">✦</span></div>
-      <div class="marquee-item">Brand Films <span class="star">✦</span></div>
-      <div class="marquee-item">Music Videos <span class="star">✦</span></div>
-      <div class="marquee-item">Color &amp; Finish <span class="star">✦</span></div>
+  <!-- ─── Filter bar ─── -->
+  <div class="filter-bar">
+    <div class="filter-list">
+      <button class="filter active" data-filter="all">All Work</button>
+      <button class="filter" data-filter="brand">Brand</button>
+      <button class="filter" data-filter="music">Music</button>
+      <button class="filter" data-filter="doc">Documentary</button>
+      <button class="filter" data-filter="creator">Creator</button>
     </div>
+    <div class="filter-count">08 projects · 2018—2026</div>
   </div>
 
-  <!-- ─── Work — Asymmetric bento grid ─── -->
-  <section id="work" class="work">
-    <div class="section-head">
-      <div>
-        <div class="label">§ 01</div>
-        <div class="count">08</div>
-      </div>
-      <div>
-        <h2>Selected work,<br/>2018 — <em>2026</em>.</h2>
-        <p class="lede">A handful of projects I directed, designed, and produced. Hover for the play head. Click to read the case study.</p>
-      </div>
-    </div>
-
+  <!-- ─── Work grid ─── -->
+  <section class="work" id="work">
     <div class="work-grid">
 
-      <!-- Tile 1: Hero — Calvin Klein -->
-      <article class="work-tile tile-c1" data-project="1">
-        <div class="work-tile-bg" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=2000&q=80&auto=format&fit=crop');"></div>
-        <div class="work-tile-overlay"></div>
-        <div class="work-tile-play">▶</div>
-        <div class="work-tile-content">
-          <div>
-            <span class="work-tile-num">01</span>
-            <span class="work-tile-client">Calvin Klein · Brand</span>
-            <h3 class="work-tile-title">CK2 — Hong Kong<br/>campaign film</h3>
+      <!-- 1: Calvin Klein — Brand -->
+      <button class="work-tile" data-project="1" data-cat="brand">
+        <div class="work-tile-thumb">
+          <img class="still" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80&auto=format&fit=crop" alt="CK2 campaign" loading="lazy" />
+          <video class="preview" src="https://assets.mixkit.co/videos/805/805-720.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="corner">2026 · 60s</span>
+        </div>
+        <div class="work-tile-meta">
+          <div class="col">
+            <div class="work-tile-title">CK2 — Hong Kong campaign</div>
+            <div class="work-tile-client">Calvin Klein · Brand Film</div>
           </div>
           <div class="work-tile-foot">
-            <span class="work-tile-meta">2026 · 60 sec · 4:3</span>
-            <span class="work-tile-arrow">→</span>
+            <span class="arrow">↗</span>
           </div>
         </div>
-      </article>
+      </button>
 
-      <!-- Tile 2: Adobe tutorial -->
-      <article class="work-tile tile-c2" data-project="2">
-        <div class="work-tile-bg" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=80&auto=format&fit=crop');"></div>
-        <div class="work-tile-overlay"></div>
-        <div class="work-tile-play">▶</div>
-        <div class="work-tile-content">
-          <div>
-            <span class="work-tile-num">02</span>
-            <span class="work-tile-client">Adobe · Education</span>
-            <h3 class="work-tile-title">Make It Motion — tutorial series</h3>
-          </div>
-          <div class="work-tile-foot">
-            <span class="work-tile-meta">2025 · 6 × 4 min · 16:9</span>
-            <span class="work-tile-arrow">→</span>
-          </div>
+      <!-- 2: Adobe — Brand -->
+      <button class="work-tile" data-project="2" data-cat="brand">
+        <div class="work-tile-thumb">
+          <img class="still" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80&auto=format&fit=crop" alt="Adobe tutorial" loading="lazy" />
+          <video class="preview" src="https://assets.mixkit.co/videos/42581/42581-720.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="corner">2025 · 6 eps</span>
         </div>
-      </article>
+        <div class="work-tile-meta">
+          <div class="col">
+            <div class="work-tile-title">Make It Motion — tutorial series</div>
+            <div class="work-tile-client">Adobe · Education</div>
+          </div>
+          <div class="work-tile-foot"><span class="arrow">↗</span></div>
+        </div>
+      </button>
 
-      <!-- Tile 3: Portrait — Music video -->
-      <article class="work-tile tile-c3" data-project="3">
-        <div class="work-tile-bg" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200&q=80&auto=format&fit=crop');"></div>
-        <div class="work-tile-overlay"></div>
-        <div class="work-tile-play">▶</div>
-        <div class="work-tile-content">
-          <div>
-            <span class="work-tile-num">03</span>
-            <span class="work-tile-client">Kitty Wong · Music</span>
-            <h3 class="work-tile-title" style="font-size: 22px;">"Night Light" — music video</h3>
-          </div>
-          <div class="work-tile-foot">
-            <span class="work-tile-meta">2025 · 3:42 · 4:5</span>
-            <span class="work-tile-arrow">→</span>
-          </div>
+      <!-- 3: Kitty Wong — Music -->
+      <button class="work-tile" data-project="3" data-cat="music">
+        <div class="work-tile-thumb">
+          <img class="still" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200&q=80&auto=format&fit=crop" alt="Night Light" loading="lazy" />
+          <video class="preview" src="https://assets.mixkit.co/videos/44551/44551-720.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="corner">2025 · 3:42</span>
         </div>
-      </article>
+        <div class="work-tile-meta">
+          <div class="col">
+            <div class="work-tile-title">"Night Light" — music video</div>
+            <div class="work-tile-client">Kitty Wong · Music</div>
+          </div>
+          <div class="work-tile-foot"><span class="arrow">↗</span></div>
+        </div>
+      </button>
 
-      <!-- Tile 4: Marriott wide -->
-      <article class="work-tile tile-c4" data-project="4">
-        <div class="work-tile-bg" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=80&auto=format&fit=crop');"></div>
-        <div class="work-tile-overlay"></div>
-        <div class="work-tile-play">▶</div>
-        <div class="work-tile-content">
-          <div>
-            <span class="work-tile-num">04</span>
-            <span class="work-tile-client">Marriott Bonvoy · Hospitality</span>
-            <h3 class="work-tile-title" style="font-size: 20px;">Asia Untold — brand film series</h3>
-          </div>
-          <div class="work-tile-foot">
-            <span class="work-tile-meta">2024 · 4 × 90 sec</span>
-            <span class="work-tile-arrow">→</span>
-          </div>
+      <!-- 4: Marriott — Brand -->
+      <button class="work-tile" data-project="4" data-cat="brand">
+        <div class="work-tile-thumb">
+          <img class="still" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80&auto=format&fit=crop" alt="Marriott" loading="lazy" />
+          <video class="preview" src="https://assets.mixkit.co/videos/44544/44544-720.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="corner">2024 · 4 eps</span>
         </div>
-      </article>
+        <div class="work-tile-meta">
+          <div class="col">
+            <div class="work-tile-title">Asia Untold — brand series</div>
+            <div class="work-tile-client">Marriott Bonvoy · Hospitality</div>
+          </div>
+          <div class="work-tile-foot"><span class="arrow">↗</span></div>
+        </div>
+      </button>
 
-      <!-- Tile 5: Empire Tailors -->
-      <article class="work-tile tile-c5" data-project="5">
-        <div class="work-tile-bg" style="background-image: url('https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=1600&q=80&auto=format&fit=crop');"></div>
-        <div class="work-tile-overlay"></div>
-        <div class="work-tile-play">▶</div>
-        <div class="work-tile-content">
-          <div>
-            <span class="work-tile-num">05</span>
-            <span class="work-tile-client">Empire Tailors · Heritage</span>
-            <h3 class="work-tile-title">A suit, a city — documentary short</h3>
-          </div>
-          <div class="work-tile-foot">
-            <span class="work-tile-meta">2024 · 8 min · 2.39:1</span>
-            <span class="work-tile-arrow">→</span>
-          </div>
+      <!-- 5: Empire Tailors — Doc -->
+      <button class="work-tile" data-project="5" data-cat="doc">
+        <div class="work-tile-thumb">
+          <img class="still" src="https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=1200&q=80&auto=format&fit=crop" alt="Empire Tailors" loading="lazy" />
+          <video class="preview" src="https://assets.mixkit.co/videos/32764/32764-720.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="corner">2024 · 8 min</span>
         </div>
-      </article>
+        <div class="work-tile-meta">
+          <div class="col">
+            <div class="work-tile-title">A suit, a city — documentary</div>
+            <div class="work-tile-client">Empire Tailors · Heritage</div>
+          </div>
+          <div class="work-tile-foot"><span class="arrow">↗</span></div>
+        </div>
+      </button>
 
-      <!-- Tile 6: Solid — Self-titled album -->
-      <article class="work-tile tile-c6 solid" data-project="6">
-        <div class="work-tile-content">
-          <div>
-            <span class="work-tile-num">06</span>
-            <span class="work-tile-client">Self-released · Music</span>
-            <h3 class="work-tile-title">"Lucid" — Konrad Chan album</h3>
-          </div>
-          <div class="work-tile-foot">
-            <span class="work-tile-meta">2023 · 8 tracks · 36 min</span>
-            <span class="work-tile-arrow">→</span>
-          </div>
+      <!-- 6: Self-released "Lucid" — Music -->
+      <button class="work-tile" data-project="6" data-cat="music">
+        <div class="work-tile-thumb">
+          <img class="still" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80&auto=format&fit=crop" alt="Lucid album" loading="lazy" />
+          <video class="preview" src="https://assets.mixkit.co/videos/42298/42298-720.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="corner">2023 · 8 tracks</span>
         </div>
-      </article>
+        <div class="work-tile-meta">
+          <div class="col">
+            <div class="work-tile-title">"Lucid" — album</div>
+            <div class="work-tile-client">Self-released · Music</div>
+          </div>
+          <div class="work-tile-foot"><span class="arrow">↗</span></div>
+        </div>
+      </button>
 
-      <!-- Tile 7: Sam Wong KOL -->
-      <article class="work-tile tile-c7" data-project="7">
-        <div class="work-tile-bg" style="background-image: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1600&q=80&auto=format&fit=crop');"></div>
-        <div class="work-tile-overlay"></div>
-        <div class="work-tile-play">▶</div>
-        <div class="work-tile-content">
-          <div>
-            <span class="work-tile-num">07</span>
-            <span class="work-tile-client">Sam Wong · KOL</span>
-            <h3 class="work-tile-title" style="font-size: 22px;">12-month content engine</h3>
-          </div>
-          <div class="work-tile-foot">
-            <span class="work-tile-meta">2023 · 96 pieces</span>
-            <span class="work-tile-arrow">→</span>
-          </div>
+      <!-- 7: Sam Wong — Creator -->
+      <button class="work-tile" data-project="7" data-cat="creator">
+        <div class="work-tile-thumb">
+          <img class="still" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80&auto=format&fit=crop" alt="Sam Wong" loading="lazy" />
+          <video class="preview" src="https://assets.mixkit.co/videos/44556/44556-720.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="corner">2023 · 96 pieces</span>
         </div>
-      </article>
+        <div class="work-tile-meta">
+          <div class="col">
+            <div class="work-tile-title">12-month content engine</div>
+            <div class="work-tile-client">Sam Wong · KOL</div>
+          </div>
+          <div class="work-tile-foot"><span class="arrow">↗</span></div>
+        </div>
+      </button>
 
-      <!-- Tile 8: Craftissimo -->
-      <article class="work-tile tile-c8" data-project="8">
-        <div class="work-tile-bg" style="background-image: url('https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=1600&q=80&auto=format&fit=crop');"></div>
-        <div class="work-tile-overlay"></div>
-        <div class="work-tile-play">▶</div>
-        <div class="work-tile-content">
-          <div>
-            <span class="work-tile-num">08</span>
-            <span class="work-tile-client">Craftissimo · Small business</span>
-            <h3 class="work-tile-title">The Maker Series — documentary</h3>
-          </div>
-          <div class="work-tile-foot">
-            <span class="work-tile-meta">2022 · 5 × 6 min</span>
-            <span class="work-tile-arrow">→</span>
-          </div>
+      <!-- 8: Craftissimo — Doc -->
+      <button class="work-tile" data-project="8" data-cat="doc">
+        <div class="work-tile-thumb">
+          <img class="still" src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=1200&q=80&auto=format&fit=crop" alt="Craftissimo" loading="lazy" />
+          <video class="preview" src="https://assets.mixkit.co/videos/23327/23327-720.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="corner">2022 · 5 eps</span>
         </div>
-      </article>
+        <div class="work-tile-meta">
+          <div class="col">
+            <div class="work-tile-title">The Maker Series — documentary</div>
+            <div class="work-tile-client">Craftissimo · Small Business</div>
+          </div>
+          <div class="work-tile-foot"><span class="arrow">↗</span></div>
+        </div>
+      </button>
 
     </div>
   </section>
 
-  <!-- ─── Reel ─── -->
-  <section id="reel" class="reel">
-    <div class="section-head">
-      <div>
-        <div class="label">§ 02</div>
-        <div class="count">02</div>
+  <!-- ─── Reel strip ─── -->
+  <section class="reel-strip">
+    <div class="reel-strip-inner">
+      <div class="reel-strip-left">
+        <a href="#contact" class="reel-play-btn">▶</a>
+        <h3>Konrad Chan — Showreel 2026<small>02:14 · 4K · Stereo</small></h3>
       </div>
-      <div>
-        <h2>The reel,<br/>in <em>two minutes</em>.</h2>
-        <p class="lede">A cut of selected motion, direction, and sound work — 2024 through 2026.</p>
+      <div class="reel-strip-right">
+        <span>2018—2026</span>
+        <span>·</span>
+        <span>Selected cuts</span>
       </div>
-    </div>
-
-    <div class="reel-frame">
-      <div class="bg"></div>
-      <div class="overlay"></div>
-      <div class="play">▶</div>
-      <div class="label">
-        <b>Konrad Chan — Showreel 2026</b>
-        02:14 · 4K · Stereo
-      </div>
-      <div class="duration">2:14</div>
-    </div>
-  </section>
-
-  <!-- ─── Selected clients ─── -->
-  <section class="clients">
-    <div class="clients-head">
-      <span class="label">§ 03 · Selected Clients</span>
-      <span class="label">2018 — 2026</span>
-    </div>
-    <div class="clients-list">
-      <div class="client-cell">Calvin Klein <span class="num">01</span></div>
-      <div class="client-cell">Adobe <span class="num">02</span></div>
-      <div class="client-cell">Marriott <span class="num">03</span></div>
-      <div class="client-cell">Empire Tailors <span class="num">04</span></div>
-      <div class="client-cell">Craftissimo <span class="num">05</span></div>
-      <div class="client-cell">Rosie Posie <span class="num">06</span></div>
-      <div class="client-cell">Sam Wong <span class="num">07</span></div>
-      <div class="client-cell">Victor Cheng <span class="num">08</span></div>
-      <div class="client-cell">Kitty Wong <span class="num">09</span></div>
-      <div class="client-cell">+ more <span class="num">10</span></div>
-      <div class="client-cell">+ more <span class="num">11</span></div>
-      <div class="client-cell">+ more <span class="num">12</span></div>
     </div>
   </section>
 
   <!-- ─── About ─── -->
   <section id="about" class="about">
-    <div class="section-head" style="border-color: rgba(0,0,0,0.1);">
-      <div>
-        <div class="label" style="color: rgba(0,0,0,0.5);">§ 04</div>
-        <div class="count">07</div>
-      </div>
-      <div>
-        <h2 style="color: var(--ink);">A producer who<br/>became a <em>filmmaker</em>.</h2>
-      </div>
+    <div>
+      <div class="label">About</div>
+      <div class="about-photo"></div>
     </div>
+    <div>
+      <h2>A producer who <em>became a filmmaker</em>.</h2>
+      <p>Whether through music, sound design, filming, editing, or animation — I never make anything I'm not proud of, and will obsess over any given project until it is the best it can be.</p>
+      <p>My background is in music production. I've produced 6 albums and EPs, and self-produced hundreds of tracks since I was 9 years old. Sound and music are important to me and always play a key role in any video work I do.</p>
+      <p>I use Adobe Creative Cloud (Premiere Pro, After Effects, Photoshop, Lightroom, Illustrator) for videos, graphics, and photography, and Logic Pro X for music and audio.</p>
 
-    <div class="about-grid">
-      <div class="about-photo">
-        <div class="caption">Hong Kong · 2026</div>
-      </div>
-      <div class="about-bio">
-        <div class="label">About</div>
-        <h2>I am ever-expanding my <em>toolbox</em>.</h2>
-        <p>Whether through music, sound design, filming, editing, or animation — I never make anything I'm not proud of, and will obsess over any given project until it is the best it can be.</p>
-        <p>My background is in music production. I've produced 6 albums and EPs, and self-produced hundreds of tracks since I was 9 years old. Sound and music are important to me and always play a key role in any video work I do.</p>
-        <p>I use Adobe Creative Cloud (Premiere Pro, After Effects, Photoshop, Lightroom, Illustrator) for videos, graphics, and photography, and Logic Pro X for music and audio.</p>
-        <p>I always expose myself to the creative work of others. It inspires me to break out of conventions and try new video ideas. It also keeps me informed of innovations happening in content creation, to be up-to-date with trends and then push them.</p>
-        <div class="quote-box">
-          Sound and music are important to me and always play a key role in any video work I do.
+      <div class="about-credentials">
+        <div class="cred">
+          <div class="label">Studio</div>
+          <div class="value">Sheung Wan · HK</div>
+        </div>
+        <div class="cred">
+          <div class="label">Languages</div>
+          <div class="value">English · Cantonese · Mandarin</div>
+        </div>
+        <div class="cred">
+          <div class="label">Tools</div>
+          <div class="value">Premiere · AE · Logic</div>
+        </div>
+        <div class="cred">
+          <div class="label">Practice</div>
+          <div class="value">Solo · With specialists</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── Approach ─── -->
-  <section class="approach">
-    <div class="section-head" style="border-color: rgba(0,0,0,0.1);">
-      <div>
-        <div class="label" style="color: rgba(0,0,0,0.5);">§ 05</div>
-        <div class="count">04</div>
-      </div>
-      <div>
-        <h2 style="color: var(--ink);">How I <em>work</em>.</h2>
-        <p class="lede" style="color: rgba(0,0,0,0.6);">Four principles that govern every project, regardless of scale or budget.</p>
-      </div>
+  <!-- ─── Clients ─── -->
+  <section class="clients">
+    <div class="clients-head">
+      <span class="label">Selected Clients</span>
+      <span class="label">2018—2026</span>
     </div>
-
-    <div class="approach-grid">
-      <div class="approach-card">
-        <span class="num">01</span>
-        <h3>Sound leads, always.</h3>
-        <p>Every project starts with audio — a track, a foley reference, a room tone. Image follows sound. The picture moves the way the sound breathes.</p>
-      </div>
-      <div class="approach-card">
-        <span class="num">02</span>
-        <h3>Obsess over the cut.</h3>
-        <p>I edit obsessively. The first cut is the worst cut. The last cut is rarely the last cut. I keep refining until the rhythm of the piece feels inevitable.</p>
-      </div>
-      <div class="approach-card">
-        <span class="num">03</span>
-        <h3>One voice per piece.</h3>
-        <p>A film has one visual language, one pacing, one mood. I try not to break that voice. If a transition feels showy, it usually means the cut before it was wrong.</p>
-      </div>
-      <div class="approach-card">
-        <span class="num">04</span>
-        <h3>Make fewer things, better.</h3>
-        <p>I turn down most briefs. The work I take has to be something I can be proud of in two years. That filter saves me and saves the client.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Recognition ─── -->
-  <section class="recognition">
-    <div class="section-head">
-      <div>
-        <div class="label">§ 06</div>
-        <div class="count">06</div>
-      </div>
-      <div>
-        <h2>Recognition.</h2>
-        <p class="lede">A handful of the awards, festivals, and publications that took the work.</p>
-      </div>
-    </div>
-
-    <div class="rec-grid">
-      <div class="rec-cell">
-        <div class="year">2025</div>
-        <div class="title">Vimeo Staff Pick</div>
-        <div class="org">"Night Light" music video</div>
-      </div>
-      <div class="rec-cell">
-        <div class="year">2025</div>
-        <div class="title">Best Brand Film · Asia</div>
-        <div class="org">Creative Circle Awards</div>
-      </div>
-      <div class="rec-cell">
-        <div class="year">2024</div>
-        <div class="title">Motion Awards · Honoree</div>
-        <div class="org">Adobe MAX</div>
-      </div>
-      <div class="rec-cell">
-        <div class="year">2024</div>
-        <div class="title">Best Sound Design · Short</div>
-        <div class="org">HK Film &amp; TV Awards</div>
-      </div>
-      <div class="rec-cell">
-        <div class="year">2023</div>
-        <div class="title">Best Music Video</div>
-        <div class="org">Hong Kong Indie Film Fest</div>
-      </div>
-      <div class="rec-cell">
-        <div class="year">2022</div>
-        <div class="title">Featured · Motionographer</div>
-        <div class="org">"The Maker Series"</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Testimonial ─── -->
-  <section class="testimonial">
-    <div class="testimonial-inner">
-      <p class="testimonial-quote">Konrad brought a sound-first sensibility to a campaign we'd been planning visually for six months. The brief improved the day he joined. The film improved the day he cut it.</p>
-      <div class="testimonial-attribution">
-        <div class="testimonial-avatar">B</div>
-        <div>
-          <div class="testimonial-name">Brand Director · Calvin Klein Asia</div>
-          <div class="testimonial-role">Engaged 2025 · CK2 launch</div>
-        </div>
-      </div>
+    <div class="clients-list">
+      <span class="client-name">Calvin Klein</span>
+      <span class="client-name">Adobe</span>
+      <span class="client-name">Marriott Bonvoy</span>
+      <span class="client-name">Empire Tailors</span>
+      <span class="client-name">Craftissimo</span>
+      <span class="client-name">Rosie Posie</span>
+      <span class="client-name">Sam Wong</span>
+      <span class="client-name">Victor Cheng</span>
+      <span class="client-name">Kitty Wong</span>
+      <span class="client-name">+ more</span>
     </div>
   </section>
 
   <!-- ─── Contact ─── -->
   <section id="contact" class="contact">
-    <div class="contact-eyebrow">§ 07 · Currently Booking Q1 2027</div>
-    <h2>Have a brief?</h2>
-    <a href="mailto:konrad@konradchan.com" class="contact-email">konrad@konradchan.com</a>
+    <h2>Have a brief? <em>Let's talk.</em></h2>
     <div class="contact-details">
-      <div class="contact-detail">
-        <div class="label">Studio</div>
-        <div class="value">Sheung Wan · HK</div>
+      <div class="contact-row">
+        <span class="label">Email</span>
+        <span class="value"><a href="mailto:konrad@konradchan.com">konrad@konradchan.com</a></span>
       </div>
-      <div class="contact-detail">
-        <div class="label">Instagram</div>
-        <div class="value"><a href="https://instagram.com/konradjchan" target="_blank" rel="noopener">@konradjchan</a></div>
+      <div class="contact-row">
+        <span class="label">Instagram</span>
+        <span class="value"><a href="https://instagram.com/konradjchan" target="_blank" rel="noopener">@konradjchan</a></span>
       </div>
-      <div class="contact-detail">
-        <div class="label">Response Time</div>
-        <div class="value">Within 24 hours</div>
+      <div class="contact-row">
+        <span class="label">Studio</span>
+        <span class="value">Sheung Wan · Hong Kong</span>
       </div>
-      <div class="contact-detail">
-        <div class="label">Latest Work</div>
-        <div class="value">CK2 campaign · Aug 2026</div>
+      <div class="contact-row">
+        <span class="label">Response</span>
+        <span class="value">Within 24 hours</span>
       </div>
     </div>
   </section>
 
   <!-- ─── Footer ─── -->
   <footer class="footer">
-    <div class="footer-version">© 2026 · Made in Hong Kong · v.2026.08</div>
+    <span>© 2026 · Made in Hong Kong</span>
     <div class="footer-links">
       <a href="https://instagram.com/konradjchan" target="_blank" rel="noopener">Instagram</a>
       <a href="https://vimeo.com/konradjchan" target="_blank" rel="noopener">Vimeo</a>
@@ -1358,174 +924,71 @@
     </div>
   </footer>
 
-  <!-- ─── Project modal ─── -->
+  <!-- ─── Modal ─── -->
   <div class="modal" id="modal">
-    <button class="modal-close" id="modal-close">Close ✕</button>
-    <div class="modal-content" id="modal-content">
-      <!-- populated by JS -->
-    </div>
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-content" id="modal-content"></div>
   </div>
 
   <script>
-    /* ─── Loading screen ─── */
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loader').classList.add('gone');
-      }, 600);
-    });
-
-    /* ─── Cursor ─── */
-    (() => {
-      const cursor = document.getElementById('cursor');
-      let x = 0, y = 0, tx = 0, ty = 0;
-      document.addEventListener('mousemove', e => {
-        x = e.clientX; y = e.clientY;
-      });
-      function loop() {
-        tx += (x - tx) * 0.2;
-        ty += (y - ty) * 0.2;
-        cursor.style.transform = `translate(${tx}px, ${ty}px) translate(-50%, -50%)`;
-        requestAnimationFrame(loop);
-      }
-      loop();
-      document.querySelectorAll('.work-tile, .reel-frame, a, button, .contact-email').forEach(el => {
-        const isVideo = el.classList.contains('work-tile') || el.classList.contains('reel-frame');
-        el.addEventListener('mouseenter', () => cursor.classList.add(isVideo ? 'play' : 'hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover', 'play'));
-      });
-    })();
-
     /* ─── Project data ─── */
     const projects = {
-      1: {
-        title: 'CK2 — Hong Kong campaign film.',
-        client: 'Calvin Klein · Brand',
-        year: '2026',
-        role: 'Director · Editor · Sound',
-        type: 'Brand Film',
-        hero: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=2400&q=80&auto=format&fit=crop',
+      1: { title: 'CK2 — Hong Kong campaign film.', client: 'Calvin Klein · Brand', year: '2026', type: 'Brand Film', role: 'Director · Editor · Sound',
         brief: 'Calvin Klein wanted a HK launch film for CK2 that felt less "global brand adapts to market" and more "this city, this energy, this room." The agency brief was 4 pages. The actual creative latitude was wide.',
         approach: 'I co-directed with the brand team over three shoots across Sheung Wan, Central, and Kowloon. We shot on the FX3 with mostly available light. I cut the film in Premiere with a Logic-driven sound design pass — the city had to feel like it had a pulse, not a soundtrack laid on top. The 60-second cut shipped in 4 weeks.',
         outcome: 'The film became the regional hero asset for CK2 across 9 markets. Brand-side feedback was that it was the first time a CK piece felt "made by someone who actually lives here." Two follow-up briefs in 2026.',
         quote: 'Konrad brought a sound-first sensibility to a campaign we had been planning visually for six months. — Brand Director, CK Asia',
-        images: [
-          'https://images.unsplash.com/photo-1554941829-202a0b2403b8?w=1600&q=80&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80&auto=format&fit=crop'
-        ]
-      },
-      2: {
-        title: 'Make It Motion — Adobe tutorial series.',
-        client: 'Adobe · Education',
-        year: '2025',
-        role: 'Director · Animator · Host',
-        type: 'Educational Series',
-        hero: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=2400&q=80&auto=format&fit=crop',
+        hero: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=2400&q=80&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1554941829-202a0b2403b8?w=1600&q=80&auto=format&fit=crop','https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80&auto=format&fit=crop'] },
+      2: { title: 'Make It Motion — Adobe tutorial series.', client: 'Adobe · Education', year: '2025', type: 'Educational Series', role: 'Director · Animator · Host',
         brief: 'Adobe wanted six 4-minute tutorials that demystified motion design for the After Effects beginner. The audience was real, the bar was high, and the tone had to be useful without being condescending.',
-        approach: 'I wrote, animated, and hosted the series. Each episode picked one effect — easing, type, masking, color, sound design, export — and built a single concept around it. The trick was making the visuals aspirational while the explanations stayed approachable. I animated custom frames in AE for every episode, with Logic-recorded original soundtracks.',
-        outcome: 'Six episodes shipped as part of Adobe\u2019s "Make It" education track. Featured in the Adobe MAX 2025 program. Combined views 2.4M in the first quarter. I received more emails about this series than any other piece of work I have made.',
+        approach: 'I wrote, animated, and hosted the series. Each episode picked one effect — easing, type, masking, color, sound design, export — and built a single concept around it. The trick was making the visuals aspirational while the explanations stayed approachable.',
+        outcome: 'Six episodes shipped as part of Adobe\'s "Make It" education track. Featured in the Adobe MAX 2025 program. Combined views 2.4M in the first quarter.',
         quote: 'It is the rare tutorial that respects both the craft and the audience. — Motionographer editorial',
-        images: [
-          'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1600&q=80&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1600&q=80&auto=format&fit=crop'
-        ]
-      },
-      3: {
-        title: '"Night Light" — Kitty Wong music video.',
-        client: 'Kitty Wong · Independent Artist',
-        year: '2025',
-        role: 'Director · Editor · Color',
-        type: 'Music Video',
-        hero: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=2400&q=80&auto=format&fit=crop',
+        hero: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=2400&q=80&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1600&q=80&auto=format&fit=crop','https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1600&q=80&auto=format&fit=crop'] },
+      3: { title: '"Night Light" — Kitty Wong music video.', client: 'Kitty Wong · Independent Artist', year: '2025', type: 'Music Video', role: 'Director · Editor · Color',
         brief: 'Illustrator and singer Kitty Wong had a slow, aching ballad called "Night Light." The brief was open: she wanted something that felt like a memory. Two days of shoot, two weeks of post.',
-        quote: 'A memory feels the way a song feels — not the way it looks. The visual had to come second.',
-        approach: 'I shot on the FX3 with vintage lenses — a set of Contax Zeiss I borrowed from a collector friend. Cut on the rhythm of her voice, not on the beat of the track. Color graded in Resolve with a desaturated, lifted-shadow LUT I built for the project. The video premiered on Vimeo Staff Picks.',
+        approach: 'I shot on the FX3 with vintage lenses — a set of Contax Zeiss I borrowed from a collector friend. Cut on the rhythm of her voice, not on the beat of the track. Color graded in Resolve with a desaturated, lifted-shadow LUT I built for the project.',
         outcome: 'Vimeo Staff Pick. Featured on Motionographer. 380k views in 60 days. Kitty and I have made two more videos since.',
         quote: 'The video understood the song better than the song understood itself. — Kitty Wong',
-        images: [
-          'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&q=80&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=1600&q=80&auto=format&fit=crop'
-        ]
-      },
-      4: {
-        title: 'Asia Untold — Marriott Bonvoy brand series.',
-        client: 'Marriott Bonvoy · Hospitality',
-        year: '2024',
-        role: 'Director · Editor (per episode)',
-        type: 'Brand Film Series',
-        hero: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=2400&q=80&auto=format&fit=crop',
+        hero: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=2400&q=80&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&q=80&auto=format&fit=crop','https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=1600&q=80&auto=format&fit=crop'] },
+      4: { title: 'Asia Untold — Marriott Bonvoy brand series.', client: 'Marriott Bonvoy · Hospitality', year: '2024', type: 'Brand Film Series', role: 'Director · Editor (per episode)',
         brief: 'A 4-episode brand series for Marriott Bonvoy showcasing "the Asia Marriott doesn\'t show you." Each episode a different city, a different guest, a different property story. The agency brief was 60 pages. The emotional ask was simple: make us feel like a local.',
-        approach: 'I was one of four directors brought in by the agency, each owning a city. I directed the Hong Kong and Taipei episodes. I cast real guests — a chef, an architect, a writer — instead of actors. Shot over 6 days per city. Cut in Premiere with a heavy emphasis on location sound and ambient beds.',
-        outcome: 'The series became Marriott Bonvoy\'s flagship APAC content for 2024. Two of the four episodes were cut down for paid social and drove a 22% lift in direct booking consideration in target markets. The chef episode won a Creative Circle.',
+        approach: 'I was one of four directors brought in by the agency, each owning a city. I directed the Hong Kong and Taipei episodes. I cast real guests — a chef, an architect, a writer — instead of actors. Shot over 6 days per city.',
+        outcome: 'The series became Marriott Bonvoy\'s flagship APAC content for 2024. Two of the four episodes were cut down for paid social and drove a 22% lift in direct booking consideration in target markets.',
         quote: 'It is the first hotel brand film that didn\'t feel like a hotel brand film. — Campaign Asia',
-        images: [
-          'https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=1600&q=80&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80&auto=format&fit=crop'
-        ]
-      },
-      5: {
-        title: 'A suit, a city — Empire Tailors documentary.',
-        client: 'Empire Tailors · Heritage',
-        year: '2024',
-        role: 'Director · DP · Sound',
-        type: 'Documentary Short',
-        hero: 'https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=2400&q=80&auto=format&fit=crop',
-        brief: 'Empire Tailors has been cutting suits on Nathan Road since 1972. The third-generation owner wanted an 8-minute documentary to mark the brand\'s 50th anniversary — a film for the shop\'s existing clientele, not for outsiders.',
-        approach: 'I spent two weeks in the shop before the shoot started, just listening. The film needed to feel like the shop — measured, particular, slightly old-fashioned in a way that earns the name. I shot with a single camera, mostly locked-off. Sound was the whole game — the scissors, the fitting room, the pressing steam.',
-        outcome: 'Premiered at the shop\'s anniversary dinner in November 2024. 8 minutes long, no voiceover until the final 90 seconds. The owner said it was the only marketing piece the shop had ever made that didn\'t feel like marketing.',
+        hero: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=2400&q=80&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=1600&q=80&auto=format&fit=crop','https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80&auto=format&fit=crop'] },
+      5: { title: 'A suit, a city — Empire Tailors documentary.', client: 'Empire Tailors · Heritage', year: '2024', type: 'Documentary Short', role: 'Director · DP · Sound',
+        brief: 'Empire Tailors has been cutting suits on Nathan Road since 1972. The third-generation owner wanted an 8-minute documentary to mark the brand\'s 50th anniversary.',
+        approach: 'I spent two weeks in the shop before the shoot started, just listening. I shot with a single camera, mostly locked-off. Sound was the whole game — the scissors, the fitting room, the pressing steam.',
+        outcome: 'Premiered at the shop\'s anniversary dinner in November 2024. The owner said it was the only marketing piece the shop had ever made that didn\'t feel like marketing.',
         quote: 'For the first time, our shop was the film. — Owner, Empire Tailors',
-        images: [
-          'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1600&q=80&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1600&q=80&auto=format&fit=crop'
-        ]
-      },
-      6: {
-        title: '"Lucid" — Konrad Chan, self-titled album.',
-        client: 'Self-released · Music',
-        year: '2023',
-        role: 'Composer · Producer · Mix',
-        type: 'Music Album',
-        hero: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=2400&q=80&auto=format&fit=crop',
+        hero: 'https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=2400&q=80&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1600&q=80&auto=format&fit=crop','https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1600&q=80&auto=format&fit=crop'] },
+      6: { title: '"Lucid" — Konrad Chan, self-titled album.', client: 'Self-released · Music', year: '2023', type: 'Music Album', role: 'Composer · Producer · Mix',
         brief: 'My fifth solo album. 8 tracks, 36 minutes, written and produced over 18 months between commercial briefs. The album I made because I needed to make it.',
-        approach: 'Logic Pro X. Everything from scratch. Live drums on 4 tracks. Modular synth on 6. Mixed in my bedroom at 4am, mastered at a friend\'s studio. I made the album artwork myself — a single hour-long exposure of my studio window at night, blurred in long-shutter.',
+        approach: 'Logic Pro X. Everything from scratch. Live drums on 4 tracks. Modular synth on 6. Mixed in my bedroom at 4am, mastered at a friend\'s studio.',
         outcome: 'Released on Bandcamp and Spotify. Reviewed positively in a few electronic music blogs I respected. Not commercial. Important.',
         quote: 'The first album I\'ve made where the music video is in my head. — Me, to my mum',
-        images: [
-          'https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=1600&q=80&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&q=80&auto=format&fit=crop'
-        ]
-      },
-      7: {
-        title: 'Sam Wong — 12-month content engine.',
-        client: 'Sam Wong · KOL',
-        year: '2023',
-        role: 'Director · Editor · Sound',
-        type: 'Creator Content Engine',
-        hero: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=2400&q=80&auto=format&fit=crop',
+        hero: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=2400&q=80&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=1600&q=80&auto=format&fit=crop','https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&q=80&auto=format&fit=crop'] },
+      7: { title: 'Sam Wong — 12-month content engine.', client: 'Sam Wong · KOL', year: '2023', type: 'Creator Content Engine', role: 'Director · Editor · Sound',
         brief: 'KOL Sam Wong had grown to 1.4M followers on short-form but the production quality had plateaued. The brief was a year-long partnership: 96 pieces of content, 8 per month, each one better than the last.',
-        approach: 'We built a small production system. One shoot day per month, 12 pieces captured. I cut 8, Sam cut 4. Sound design was the unlock — I built a library of custom foley and a signature sonic palette Sam could use across every piece. The pieces started getting re-shared by accounts 10x his size.',
-        outcome: '96 pieces shipped in 12 months. Followers grew from 1.4M to 2.1M. Average watch time on long-form went from 38% to 61%. Sam and I still collaborate on his launch films.',
+        approach: 'We built a small production system. One shoot day per month, 12 pieces captured. I cut 8, Sam cut 4. Sound design was the unlock — I built a library of custom foley and a signature sonic palette Sam could use across every piece.',
+        outcome: '96 pieces shipped in 12 months. Followers grew from 1.4M to 2.1M. Average watch time on long-form went from 38% to 61%.',
         quote: 'You made the algorithm like me again. — Sam Wong',
-        images: [
-          'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1600&q=80&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80&auto=format&fit=crop'
-        ]
-      },
-      8: {
-        title: 'The Maker Series — Craftissimo documentary.',
-        client: 'Craftissimo · Small Business',
-        year: '2022',
-        role: 'Director · Editor · Composer',
-        type: 'Documentary Series',
-        hero: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=2400&q=80&auto=format&fit=crop',
+        hero: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=2400&q=80&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1600&q=80&auto=format&fit=crop','https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80&auto=format&fit=crop'] },
+      8: { title: 'The Maker Series — Craftissimo documentary.', client: 'Craftissimo · Small Business', year: '2022', type: 'Documentary Series', role: 'Director · Editor · Composer',
         brief: 'A small business that makes hand-poured candles wanted a content series that didn\'t feel like a small-business content series. The brief: 5 episodes, 6 minutes each, profiling the makers behind the products.',
-        approach: 'I treated it like a BBC documentary series shot on zero budget. Two-camera shoot, available light, the makers\' own tools as props. Each episode focused on one person\'s hands at work — the labor, the repetition, the obsession. I scored each episode with original compositions built around field recordings from each maker\'s workshop.',
-        outcome: 'Featured by Motionographer. Helped the brand land three major retail partnerships. The series became the template for Craftissimo\'s brand voice — they still cite it on investor decks.',
+        approach: 'I treated it like a BBC documentary series shot on zero budget. Two-camera shoot, available light, the makers\' own tools as props. Each episode focused on one person\'s hands at work.',
+        outcome: 'Featured by Motionographer. Helped the brand land three major retail partnerships.',
         quote: 'A masterclass in making a small budget feel large. — Motionographer editorial',
-        images: [
-          'https://images.unsplash.com/photo-1453686638716-aef7f9b5a15b?w=1600&q=80&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=1600&q=80&auto=format&fit=crop'
-        ]
-      }
+        hero: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=2400&q=80&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1453686638716-aef7f9b5a15b?w=1600&q=80&auto=format&fit=crop','https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=1600&q=80&auto=format&fit=crop'] }
     };
 
     /* ─── Modal ─── */
@@ -1546,7 +1009,7 @@
               <div><div class="label">Type</div><div class="value">${p.type}</div></div>
               <div><div class="label">Role</div><div class="value">${p.role}</div></div>
             </div>
-            <h2 class="modal-title">${p.title}</h2>
+            <h1 class="modal-title">${p.title}</h1>
             <div class="modal-section">
               <h3>Brief</h3>
               <p>${p.brief}</p>
@@ -1588,14 +1051,67 @@
       });
     })();
 
-    /* ─── Scroll reveal ─── */
+    /* ─── Filter ─── */
     (() => {
-      const els = document.querySelectorAll('.section-head, .work-tile, .approach-card, .rec-cell, .client-cell, .quote-box');
+      const buttons = document.querySelectorAll('.filter');
+      const tiles = document.querySelectorAll('.work-tile');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          tiles.forEach(t => {
+            if (filter === 'all' || t.dataset.cat === filter) {
+              t.style.display = '';
+            } else {
+              t.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+
+    /* ─── Hover-to-play videos ─── */
+    (() => {
+      document.querySelectorAll('.work-tile').forEach(tile => {
+        const video = tile.querySelector('video.preview');
+        if (!video) return;
+        const play = () => {
+          video.currentTime = 0;
+          const p = video.play();
+          if (p && p.catch) p.catch(() => {});
+        };
+        const pause = () => {
+          try { video.pause(); } catch (e) {}
+        };
+        tile.addEventListener('mouseenter', play);
+        tile.addEventListener('mouseleave', pause);
+        tile.addEventListener('focus', play);
+        tile.addEventListener('blur', pause);
+        // Mobile: tap to play briefly
+        tile.addEventListener('touchstart', () => {
+          play();
+          setTimeout(pause, 4000);
+        }, { passive: true });
+      });
+    })();
+
+    /* ─── Nav scroll ─── */
+    (() => {
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+      });
+    })();
+
+    /* ─── Scroll reveal (minimal) ─── */
+    (() => {
+      const els = document.querySelectorAll('.work-tile, .about, .clients, .contact, .reel-strip');
       els.forEach(el => el.classList.add('reveal'));
       const obs = new IntersectionObserver(entries => {
-        entries.forEach((e, i) => {
+        entries.forEach(e => {
           if (e.isIntersecting) {
-            setTimeout(() => e.target.classList.add('in'), i * 40);
+            e.target.classList.add('in');
             obs.unobserve(e.target);
           }
         });
