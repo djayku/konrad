@@ -76,18 +76,18 @@
 
     /* ─── Hero (tiny — one line) ─── */
     .hero {
-      padding: 96px 0 64px;
+      padding: 64px 0 40px;
       border-bottom: 1px solid var(--line);
     }
     .hero-name {
-      font-size: clamp(40px, 6vw, 64px);
+      font-size: clamp(32px, 5vw, 56px);
       font-weight: 500;
       letter-spacing: -0.03em;
       line-height: 1;
-      margin: 0 0 16px;
+      margin: 0 0 12px;
     }
     .hero-role {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--ink-2);
       font-weight: 400;
       letter-spacing: 0;
@@ -95,7 +95,7 @@
     .hero-role .sep { color: var(--muted); margin: 0 8px; }
 
     @media (max-width: 768px) {
-      .hero { padding: 56px 0 40px; }
+      .hero { padding: 40px 0 28px; }
     }
 
     /* ─── Work index (innsvx-style flat list) ─── */
@@ -137,18 +137,18 @@
       .work-filters { flex-wrap: wrap; gap: 14px; }
     }
 
-    /* Grid */
+    /* Grid (innsvx-style: stays as a grid on mobile, never collapses to 1 col) */
     .work-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px 24px;
+      gap: 12px;
       padding-bottom: 96px;
     }
-    @media (min-width: 768px) {
-      .work-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 24px; }
+    @media (min-width: 640px) {
+      .work-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
     }
-    @media (max-width: 480px) {
-      .work-grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 60px; }
+    @media (min-width: 1024px) {
+      .work-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; padding-bottom: 120px; }
     }
 
     .work-tile {
@@ -156,15 +156,15 @@
       text-align: left;
       background: transparent;
       padding: 0;
+      display: block;
     }
     .work-tile-thumb {
       position: relative;
       width: 100%;
-      aspect-ratio: 16/10;
+      aspect-ratio: 4/3;
       background: #F2F2F2;
-      border-radius: 2px;
       overflow: hidden;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .work-tile-thumb .still,
     .work-tile-thumb .preview {
@@ -184,11 +184,11 @@
     /* Play indicator that appears on hover */
     .work-tile-thumb .indicator {
       position: absolute;
-      bottom: 12px; left: 12px;
-      display: flex; align-items: center; gap: 6px;
+      bottom: 8px; left: 8px;
+      display: flex; align-items: center; gap: 5px;
       background: rgba(255,255,255,0.95);
-      padding: 4px 8px 4px 6px;
-      border-radius: 2px;
+      padding: 3px 6px 3px 5px;
+      border-radius: 1px;
       font-family: var(--font-mono);
       font-size: 9px;
       letter-spacing: 0.08em;
@@ -202,25 +202,32 @@
     .work-tile-thumb .indicator::before {
       content: '';
       width: 0; height: 0;
-      border-left: 6px solid var(--ink);
-      border-top: 4px solid transparent;
-      border-bottom: 4px solid transparent;
+      border-left: 5px solid var(--ink);
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
     }
 
+    /* Tile meta — more compact (innsvx-style inline title + year) */
     .work-tile-meta {
       display: flex; justify-content: space-between; align-items: baseline;
-      gap: 16px;
+      gap: 8px;
+      padding: 0 2px;
     }
     .work-tile-title {
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 12px;
+      font-weight: 400;
       color: var(--ink);
       letter-spacing: -0.005em;
-      line-height: 1.35;
+      line-height: 1.3;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .work-tile-foot {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
       white-space: nowrap;
       letter-spacing: 0.02em;
@@ -229,7 +236,7 @@
 
     /* ─── About (minimal) ─── */
     .about {
-      padding: 64px 0;
+      padding: 48px 0;
       border-top: 1px solid var(--line);
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -272,12 +279,12 @@
     .about-meta .sep { color: var(--line); margin: 0 4px; }
 
     @media (max-width: 768px) {
-      .about { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
+      .about { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
     }
 
     /* ─── Contact (minimal) ─── */
     .contact {
-      padding: 64px 0;
+      padding: 48px 0;
       border-top: 1px solid var(--line);
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -325,7 +332,7 @@
     .contact-row .v a:hover { color: var(--accent); }
 
     @media (max-width: 768px) {
-      .contact { grid-template-columns: 1fr; gap: 16px; padding: 48px 0; }
+      .contact { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
     }
 
     /* ─── Footer (innsvx-style) ─── */
